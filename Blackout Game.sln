@@ -1,0 +1,23 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{7ABF78F4-7FC7-1C71-4405-6C6B52A787C1}") = "Blackout Game", "Assembly-CSharp.csproj", "{9805AABE-24DD-B437-594D-E71A0EC33C11}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9805AABE-24DD-B437-594D-E71A0EC33C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9805AABE-24DD-B437-594D-E71A0EC33C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9805AABE-24DD-B437-594D-E71A0EC33C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9805AABE-24DD-B437-594D-E71A0EC33C11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
