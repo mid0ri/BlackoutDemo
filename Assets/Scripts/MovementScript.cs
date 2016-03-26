@@ -44,8 +44,9 @@ public class MovementScript : MonoBehaviour {
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
 			playerBody.velocity = new Vector2 (playerBody.velocity.x, jumpSpeed);
 
-		if(!isGrounded && Input.GetKeyDown(KeyCode.R)) /*Khanh's mod*/
-			gameObject.transform.position = new Vector3((gameObject.transform.position.x + 2), gameObject.transform.position.y,gameObject.transform.position.z);
+        if (!isGrounded && canBoost && Input.GetKeyDown(KeyCode.R)) /*Khanh's mod*/
+            StartCoroutine(Boost(0.15f));
+			//gameObject.transform.position = new Vector3((gameObject.transform.position.x + 2), gameObject.transform.position.y,gameObject.transform.position.z);
 		
 		if (Input.GetKeyDown (KeyCode.Q))
 			SetDeath (true);
@@ -107,9 +108,9 @@ public class MovementScript : MonoBehaviour {
 			GetComponent<Rigidbody2D>().velocity = boostSpeed;
 
 			if (isFacingRight == true)
-				GetComponent<Rigidbody2D>().AddForce(new Vector2(speed * 2, 0));
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(speed * 200, 0));
 			else if (isFacingRight == false)
-				GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed * 2, 0));
+				GetComponent<Rigidbody2D>().AddForce(new Vector2(-speed * 200, 0));
 
 			yield return 0;
 		}
