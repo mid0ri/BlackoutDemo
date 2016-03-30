@@ -26,6 +26,10 @@ public class BoxCamera : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
 
         focusArea = new FocusArea(player.GetComponent<Collider2D>().bounds, focusAreaSize); //referencing "Player" 2D collider bounds on the rigidbody 
+
+        shakeAmount = 0;
+
+        shakeTimer = 0;
     }
 
     void Update()
@@ -52,6 +56,7 @@ public class BoxCamera : MonoBehaviour
 
         transform.position = (Vector3)focusPosition + Vector3.forward * -3; //this line of code is what actually moves the camera itself, the -3 is how far out the camera will be to the game view.
 
+
         if (shakeTimer >= 0)
         {
             Vector2 ShakePosition = Random.insideUnitCircle * shakeAmount;
@@ -59,7 +64,7 @@ public class BoxCamera : MonoBehaviour
             transform.position = new Vector3(transform.position.x + ShakePosition.x, transform.position.y + ShakePosition.y, transform.position.z);
 
             shakeTimer -= Time.deltaTime;
-            shakeAmount = (shakeTimer/4) - Time.deltaTime; //reduces shaking amount over duration of shake. Increase number to make shaking less intense, decrease it to make it more intense.
+            shakeAmount = (shakeTimer / 4) - Time.deltaTime; //reduces shaking amount over duration of shake. Increase number to make shaking less intense, decrease it to make it more intense.
         }
 
         if (Input.GetKeyDown(KeyCode.F)) //Press 'F' to test shake effect
