@@ -62,6 +62,7 @@ public class Lever : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
+			Debug.Log ("Collider Enter");
             isTriggered = true;
         }
     }

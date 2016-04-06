@@ -16,19 +16,8 @@ public class HealthBarManager : MonoBehaviour {
 	void Start () {
 		numberOfHearts = hearts.Length;
 		thePlayer = GetComponent<PlayerController> ();
-
-
 	}
-    /*
-    void Update()
-    {
-        if (numberOfHearts == 0)
-        {
-            thePlayer.SendMessage("SetDeath", true);
-            Reset();
-        }
-    }
-    */
+
 	public void OnCollisionEnter2D(Collision2D coll){
         //For some reason this sometimes takes more than one heart from the player. Not sure why.
 		if(coll.gameObject.tag == "Danger")
@@ -45,7 +34,6 @@ public class HealthBarManager : MonoBehaviour {
                 go.SetActive(false);
         }
 
-        //
 		if (numberOfHearts == 0){
 			thePlayer.SendMessage ("SetDeath", true);
 			Reset ();
@@ -69,7 +57,6 @@ public class HealthBarManager : MonoBehaviour {
                 go.SetActive(false);
         }
 
-        //
         if (numberOfHearts == 0)
         {
             thePlayer.SendMessage("SetDeath", true);
@@ -115,14 +102,14 @@ public class HealthBarManager : MonoBehaviour {
     {
         numberOfHearts = numberOfHearts-damageAmount;
 
-        if (numberOfHearts < 0)//Just in case, making sure it can't go under 0 hearts/energy units.
-        {
+        if (numberOfHearts < 0)//Just in case, making sure it can't go under 0 hearts/energy units.         
             numberOfHearts = 0;
-        }
+		SetupScene (numberOfHearts);
 
-        heartUpdate();
+        //heartUpdate();
     }
 
+	/*
     //This individually updates every object in the heart array.
     private void heartUpdate()
     {
@@ -144,5 +131,5 @@ public class HealthBarManager : MonoBehaviour {
             thePlayer.SendMessage("SetDeath", true);
             Reset();
         }
-    }
+    }*/
 }
