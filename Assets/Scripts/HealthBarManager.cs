@@ -29,9 +29,10 @@ public class HealthBarManager : MonoBehaviour {
         }
     }
     */
-	void OnCollisionEnter2D(Collision2D coll){
+	public void OnCollisionEnter2D(Collision2D coll){
         //For some reason this sometimes takes more than one heart from the player. Not sure why.
-		if(coll.gameObject.tag == "Danger"){
+		if(coll.gameObject.tag == "Danger")
+        {
 			SendKnockBackMessage (coll.transform.position);
 			numberOfHearts--;
 			hearts [numberOfHearts].SetActive (false);
@@ -51,7 +52,32 @@ public class HealthBarManager : MonoBehaviour {
 		}			
 	}
 
-	private void Reset(){
+    public void OnTriggerEnter2D(Collider2D coll)
+    {
+        //For some reason this sometimes takes more than one heart from the player. Not sure why.
+        if (coll.gameObject.tag == "Danger")
+        {
+            SendKnockBackMessage(coll.transform.position);
+            numberOfHearts--;
+            hearts[numberOfHearts].SetActive(false);
+        }
+
+        if (coll.gameObject.tag == "Kill") //Tyler here, creating auto kill areas.
+        {
+            numberOfHearts = 0;
+            foreach (GameObject go in hearts)
+                go.SetActive(false);
+        }
+
+        //
+        if (numberOfHearts == 0)
+        {
+            thePlayer.SendMessage("SetDeath", true);
+            Reset();
+        }
+    }
+
+    private void Reset(){
 		numberOfHearts = hearts.Length;
 		foreach(GameObject go in hearts)
 			go.SetActive (true);		
@@ -72,7 +98,7 @@ public class HealthBarManager : MonoBehaviour {
 		thePlayer.movementEnabled = true;
 	}
 
-	void SendKnockBackMessage(Vector3 hazardObjPos){
+	public void SendKnockBackMessage(Vector3 hazardObjPos){
 		StartCoroutine ("haltMovement"); 
 		Vector3 heading = transform.position - hazardObjPos;
 		heading /= (heading.magnitude);
