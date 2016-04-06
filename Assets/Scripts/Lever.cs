@@ -58,13 +58,11 @@ public class Lever : MonoBehaviour {
     Both these two methods & Stay miss user input pretty often. Unless you have frame perfect tech skill.
     They are however good at picking up on collisions.
     */
+	/*
     void OnTriggerEnter2D(Collider2D other) //Flagging method.
     {
         if (other.gameObject.tag == "Player")
-        {
-			Debug.Log ("Collider Enter");
-            isTriggered = true;
-        }
+            isTriggered = true;        
     }
 
     void OnTriggerExit2D(Collider2D other) //UnFlagging method.
@@ -74,7 +72,12 @@ public class Lever : MonoBehaviour {
             isTriggered = false;
         }
     }
+	*/
 
+	void OnTriggerStay2D(Collider2D other){
+		if (other.gameObject.tag == "Player")
+			isTriggered = true;
+	}
     /* This method is commented out because the if statements within are now done in the update method.
        //Mainly because if they're done here it misses user input pretty often.
 	void OnTriggerStay2D(Collider2D other)
