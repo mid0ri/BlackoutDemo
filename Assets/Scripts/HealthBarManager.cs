@@ -55,7 +55,7 @@ public class HealthBarManager : MonoBehaviour {
     public void OnTriggerEnter2D(Collider2D coll)
     {
         //For some reason this sometimes takes more than one heart from the player. Not sure why.
-        if (coll.gameObject.tag == "Danger")
+        if (coll.gameObject.tag == "EnemyProjectile")
         {
             SendKnockBackMessage(coll.transform.position);
             numberOfHearts--;
