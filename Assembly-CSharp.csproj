@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\BarrierMasterControlScript.cs" />
      <Compile Include="Assets\Scripts\BoxCamera.cs" />
      <Compile Include="Assets\Scripts\CheckpointScript.cs" />
      <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
