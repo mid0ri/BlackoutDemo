@@ -4,6 +4,8 @@ using System.Collections;
 public class BarrierMasterControlScript : MonoBehaviour {
 	
 	public Collider2D[] redBarriers, yellowBarriers, purpleBarriers;
+	public Animator[] redAnims, yellowAnims, purpleAnims;
+
 	private int currentActiveBarrierId; //determine which barrier is currently active
 	//-1 means all are active and 0 none are active; 1 - red | 2 - yellow | 3 - purple
 	private KeyCode[] barriersKeys = {
@@ -20,16 +22,16 @@ public class BarrierMasterControlScript : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKeyDown (barriersKeys [0]) || Input.GetKeyDown (barriersKeys [3]))
+		if (Input.GetKeyDown (barriersKeys [0]) || Input.GetKeyDown (barriersKeys [3])) 
 			EnableBarriers (1);
 		
-		if (Input.GetKeyDown (barriersKeys [1]) || Input.GetKeyDown (barriersKeys [4]))
+		if (Input.GetKeyDown (barriersKeys [1]) || Input.GetKeyDown (barriersKeys [4])) 
 			EnableBarriers (2);
 
 		if (Input.GetKeyDown (barriersKeys [2]) || Input.GetKeyDown (barriersKeys [5])) 
-			EnableBarriers (3);
-		
+			EnableBarriers (3);		
 	}
+
 	void EnableAll(){
 		foreach (Collider2D aBarrier in redBarriers)
 			aBarrier.enabled = true;
@@ -37,6 +39,13 @@ public class BarrierMasterControlScript : MonoBehaviour {
 			aBarrier.enabled = true;
 		foreach (Collider2D aBarrier in purpleBarriers)
 			aBarrier.enabled = true;
+
+		foreach (Animator anim in redAnims)
+			anim.SetBool ("isOff",false);
+		foreach (Animator anim in yellowAnims)
+			anim.SetBool ("isOff",false);
+		foreach (Animator anim in purpleAnims)
+			anim.SetBool ("isOff",false);
 	}
 	void EnableBarriers(int barrierID){
 		if (barrierID != currentActiveBarrierId) {
@@ -50,16 +59,22 @@ public class BarrierMasterControlScript : MonoBehaviour {
 				Debug.Log ("+red");
 				foreach (Collider2D aBarrier in redBarriers)
 					aBarrier.enabled = false;
+				foreach (Animator anim in redAnims)
+					anim.SetBool ("isOff",true);
 				break;
 			case 2:
 				Debug.Log ("+yellow");
 				foreach (Collider2D aBarrier in yellowBarriers)
 					aBarrier.enabled = false;
+				foreach (Animator anim in yellowAnims)
+					anim.SetBool ("isOff",true);
 				break;
 			case 3:
 				Debug.Log ("+purple");
 				foreach (Collider2D aBarrier in purpleBarriers)
 					aBarrier.enabled = false;
+				foreach (Animator anim in purpleAnims)
+					anim.SetBool ("isOff",true);
 				break;
 			}
 		}
