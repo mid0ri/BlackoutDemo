@@ -61,7 +61,7 @@
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\SceneParamsSetup.cs" />
      <Compile Include="Assets\Scripts\SonicController.cs" />
-     <Compile Include="Assets\Scripts\barrierScript.cs" />
+     <Compile Include="Assets\Scripts\barrierLeverScript.cs" />
      <Compile Include="Assets\Scripts\enemyFollowController.cs" />
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Volumes/Segate500/unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
