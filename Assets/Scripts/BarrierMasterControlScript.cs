@@ -32,7 +32,6 @@ public class BarrierMasterControlScript : MonoBehaviour {
 			EnableBarriers (3);		
 	}
 
-	/*to enable all barriers*/
 	void EnableAll(){
 		foreach (Collider2D aBarrier in redBarriers)
 			aBarrier.enabled = true;
