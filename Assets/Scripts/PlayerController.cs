@@ -50,8 +50,9 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	private void SetDeath(bool isDead){
+	private void SetDeath(bool isDead){		
 		if(isDead){
+			SoundManager.instance.playSoundEffect (0);
 			if(lastCheckpoint!=startingPos){
 				HealthBarManager healthBarManager = GetComponent<HealthBarManager> ();
 				healthBarManager.SendMessage ("Reset");
