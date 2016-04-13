@@ -6,9 +6,7 @@ public class Lever : MonoBehaviour {
 	Animator anim;
 	public MovingPlatform platform;
     public HealthBarManager healthBar;//Referencing the Object that the "HealthBarManager" component is in.
-    public int healthCost; 
-    //"healthCost" variable is set in the unity inspector to the value you want the puzzle element to
-    //damage/energy cost the player.
+    public int healthCost;//health "cost" for when activating lever
 
     private bool isTriggered;
     /*
@@ -58,7 +56,7 @@ public class Lever : MonoBehaviour {
     Both these two methods & Stay miss user input pretty often. Unless you have frame perfect tech skill.
     They are however good at picking up on collisions.
     */
-	/*
+
     void OnTriggerEnter2D(Collider2D other) //Flagging method.
     {
         if (other.gameObject.tag == "Player")
@@ -72,12 +70,7 @@ public class Lever : MonoBehaviour {
             isTriggered = false;
         }
     }
-	*/
 
-	void OnTriggerStay2D(Collider2D other){
-		if (other.gameObject.tag == "Player")
-			isTriggered = true;
-	}
     /* This method is commented out because the if statements within are now done in the update method.
        //Mainly because if they're done here it misses user input pretty often.
 	void OnTriggerStay2D(Collider2D other)

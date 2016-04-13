@@ -70,7 +70,8 @@ public class HealthBarManager : MonoBehaviour {
 			go.SetActive (true);		
 	}
 
-	private void SetupScene(int resumeNumberOfHearts){
+	/*private void SetupScene(int resumeNumberOfHearts){
+		Debug.Log ("calling setup");
 		numberOfHearts = resumeNumberOfHearts;
 		for(int i=0; i<hearts.Length; i++){
 			if (i < resumeNumberOfHearts)
@@ -79,6 +80,17 @@ public class HealthBarManager : MonoBehaviour {
 				hearts [i].SetActive (false);
 		}
 	}
+
+	private void SetupScene(){
+		//numberOfHearts = resumeNumberOfHearts;
+		for(int i=0; i<hearts.Length; i++){
+			if (i < numberOfHearts)
+				hearts [i].SetActive (true);
+			else
+				hearts [i].SetActive (false);
+		}
+	}*/
+
 	IEnumerator haltMovement(){
 		thePlayer.movementEnabled = false;
 		yield return new WaitForSeconds (1f);
@@ -103,13 +115,13 @@ public class HealthBarManager : MonoBehaviour {
         numberOfHearts = numberOfHearts-damageAmount;
 
         if (numberOfHearts < 0)//Just in case, making sure it can't go under 0 hearts/energy units.         
-            numberOfHearts = 0;
-		SetupScene (numberOfHearts);
+//            numberOfHearts = 0;
+//		SetupScene (numberOfHearts);
 
-        //heartUpdate();
+        heartUpdate();
     }
 
-	/*
+
     //This individually updates every object in the heart array.
     private void heartUpdate()
     {
@@ -131,5 +143,5 @@ public class HealthBarManager : MonoBehaviour {
             thePlayer.SendMessage("SetDeath", true);
             Reset();
         }
-    }*/
+    }
 }
