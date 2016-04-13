@@ -9,8 +9,7 @@ public class DoorScript : MonoBehaviour {
 
 	public void EnterDoor(){
 		currentNumberOfHearts = healthBarManager.getNumberOfActiveHearts();
+		GameManager.instance.health = currentNumberOfHearts;
 		SceneManager.LoadScene ("NextScene");
-		Debug.Log ("health on Door " + currentNumberOfHearts);
-		PlayerPrefs.SetInt("Player Health", currentNumberOfHearts);
 	}
 }

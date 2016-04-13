@@ -14,10 +14,22 @@ public class HealthBarManager : MonoBehaviour {
 	private PlayerController thePlayer;
 
 	void Start () {
+		Debug.Log ("start");
 		numberOfHearts = hearts.Length;
 		thePlayer = GetComponent<PlayerController> ();
-	}
 
+		if (GameManager.instance.health < hearts.Length) {
+			SetupScene (GameManager.instance.health);
+		}
+	}
+	/*
+	void Awake(){
+		Debug.Log ("awake");
+		if (GameManager.instance.health < hearts.Length) {
+			SetupScene (GameManager.instance.health);
+		}
+
+	}*/
 	public void OnCollisionEnter2D(Collision2D coll){
         //For some reason this sometimes takes more than one heart from the player. Not sure why.
 		if(coll.gameObject.tag == "Danger")
@@ -70,7 +82,7 @@ public class HealthBarManager : MonoBehaviour {
 			go.SetActive (true);		
 	}
 
-	/*private void SetupScene(int resumeNumberOfHearts){
+	private void SetupScene(int resumeNumberOfHearts){
 		Debug.Log ("calling setup");
 		numberOfHearts = resumeNumberOfHearts;
 		for(int i=0; i<hearts.Length; i++){
@@ -80,7 +92,7 @@ public class HealthBarManager : MonoBehaviour {
 				hearts [i].SetActive (false);
 		}
 	}
-
+	/*
 	private void SetupScene(){
 		//numberOfHearts = resumeNumberOfHearts;
 		for(int i=0; i<hearts.Length; i++){
@@ -115,9 +127,9 @@ public class HealthBarManager : MonoBehaviour {
         numberOfHearts = numberOfHearts-damageAmount;
 
         if (numberOfHearts < 0)//Just in case, making sure it can't go under 0 hearts/energy units.         
-//            numberOfHearts = 0;
-//		SetupScene (numberOfHearts);
-
+			{
+			  numberOfHearts = 0;
+			}
         heartUpdate();
     }
 

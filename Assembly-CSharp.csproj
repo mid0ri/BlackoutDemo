@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
      <Compile Include="Assets\Scripts\DoorScript.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectileController.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\HealthBarManager.cs" />
      <Compile Include="Assets\Scripts\Lever.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
