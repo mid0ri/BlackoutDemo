@@ -69,11 +69,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ProjectileEnemyController.cs" />
+    <Compile Include="Assets\Scripts\BarrierMasterControlScript.cs" />
     <Compile Include="Assets\Scripts\BoxCamera.cs" />
     <Compile Include="Assets\Scripts\CheckpointScript.cs" />
     <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\DoorScript.cs" />
     <Compile Include="Assets\Scripts\EnemyProjectileController.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthBarManager.cs" />
     <Compile Include="Assets\Scripts\Lever.cs" />
     <Compile Include="Assets\Scripts\MainMenu.cs" />
@@ -84,8 +87,9 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\SceneParamsSetup.cs" />
     <Compile Include="Assets\Scripts\SonicController.cs" />
-    <Compile Include="Assets\Scripts\barrierScript.cs" />
+    <Compile Include="Assets\Scripts\barrierLeverScript.cs" />
     <Compile Include="Assets\Scripts\enemyFollowController.cs" />
+    <Compile Include="Assets\SoundManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
