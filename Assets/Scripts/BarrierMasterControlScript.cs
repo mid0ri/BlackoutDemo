@@ -49,7 +49,7 @@ public class BarrierMasterControlScript : MonoBehaviour {
 	}
 
 	/*to enable only specific barriers(ie deactivate specific barriers by enable everything then disable specified)*/
-	void EnableBarriers(int barrierID){
+	public void EnableBarriers(int barrierID){
 
 		//only get called if deactivating a different barrier no point in deactivating what is already deactivated
 		if (barrierID != currentActiveBarrierId) {

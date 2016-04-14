@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
-
+//depricated use movementscript instead
 public class PlayerController : MonoBehaviour {
-
+	/*
 	private Rigidbody2D playerBody;
 	private Collider2D playerCollider;
 	private Vector3 lastCheckpoint, startingPos;
@@ -50,9 +50,8 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	private void SetDeath(bool isDead){		
-		if(isDead){
-			SoundManager.instance.playSoundEffect (0);
+	private void SetDeath(bool isDead){
+		if(isDead){			
 			if(lastCheckpoint!=startingPos){
 				HealthBarManager healthBarManager = GetComponent<HealthBarManager> ();
 				healthBarManager.SendMessage ("Reset");
@@ -72,18 +71,18 @@ public class PlayerController : MonoBehaviour {
 		playerBody.velocity = knockbackDistance * 2;
 	}
 
-	void OnTriggerStay2D(Collider2D collider){		
+	void OnTriggerStay2D(Collider2D collider){
 		if(Input.GetKeyDown(KeyCode.X) && collider.tag == "Door"){
 			Debug.Log ("player StayDetected");
 			collider.gameObject.SendMessage("EnterDoor");
 		}
 	}
-
-	//When player comes into contact with platform, sets the platform as the parent. 
+	/*
+	//When player comes into contact with platform, sets the platform as the parent.
 	//Allows the player to move with the platform, rather than sliding off.
 	void OnCollisionEnter2D(Collision2D other)
 	{
-		if (other.transform.tag == "MovingPlatform") 
+		if (other.transform.tag == "MovingPlatform")
 		{
 			transform.parent = other.transform;
 		}
@@ -93,9 +92,10 @@ public class PlayerController : MonoBehaviour {
 	//Keeps player from moving with platform while on the ground.
 	void OnCollisionExit2D(Collision2D other)
 	{
-		if (other.transform.tag == "MovingPlatform") 
+		if (other.transform.tag == "MovingPlatform")
 		{
 			transform.parent = null;
 		}
-	}
+	}*
+	/*/
 }

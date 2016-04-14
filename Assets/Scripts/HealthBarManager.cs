@@ -11,12 +11,12 @@ public class HealthBarManager : MonoBehaviour {
 	public int numberOfHearts;
 
 
-	private PlayerController thePlayer;
+	private MovementScript thePlayer;
 
 	void Start () {
 		Debug.Log ("start");
 		numberOfHearts = hearts.Length;
-		thePlayer = GetComponent<PlayerController> ();
+		thePlayer = GetComponent<MovementScript> ();
 
 		if (GameManager.instance.health < hearts.Length) {
 			SetupScene (GameManager.instance.health);

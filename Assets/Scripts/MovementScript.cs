@@ -44,9 +44,11 @@ public class MovementScript : MonoBehaviour {
         if (isGrounded && Input.GetKeyDown(KeyCode.Space))
 			playerBody.velocity = new Vector2 (playerBody.velocity.x, jumpSpeed);
 
-        if (!isGrounded && canBoost && Input.GetKeyDown(KeyCode.R)) /*Khanh's mod*/
-            StartCoroutine(Boost(0.15f));
-			//gameObject.transform.position = new Vector3((gameObject.transform.position.x + 2), gameObject.transform.position.y,gameObject.transform.position.z);
+		if (!isGrounded && canBoost && Input.GetKeyDown(KeyCode.R)){
+			SoundManager.instance.playSoundEffect (0);
+			StartCoroutine(Boost(0.15f));
+		}
+            
 		
 		if (Input.GetKeyDown (KeyCode.Q))
 			SetDeath (true);
@@ -73,6 +75,7 @@ public class MovementScript : MonoBehaviour {
 
 	private void SetDeath(bool isDead){
 		if(isDead){
+			SoundManager.instance.playSoundEffect (2);
 			if(lastCheckpoint!=startingPos){
 				HealthBarManager healthBarManager = GetComponent<HealthBarManager> ();
 				healthBarManager.SendMessage ("Reset");
@@ -117,5 +120,25 @@ public class MovementScript : MonoBehaviour {
 
 		yield return new WaitForSeconds(boostCooldown);
 		canBoost = true;
+	}
+
+	//When player comes into contact with platform, sets the platform as the parent.
+	//Allows the player to move with the platform, rather than sliding off.
+	void OnCollisionEnter2D(Collision2D other)
+	{
+		if (other.transform.tag == "MovingPlatform")
+		{
+			transform.parent = other.transform;
+		}
+	}
+
+	//When player jumps off platform, removes platform as player.
+	//Keeps player from moving with platform while on the ground.
+	void OnCollisionExit2D(Collision2D other)
+	{
+		if (other.transform.tag == "MovingPlatform")
+		{
+			transform.parent = null;
+		}
 	}
 }
