@@ -38,13 +38,14 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>/Volumes/Segate500/unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/Volumes/Segate500/unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\ProjectileEnemyController.cs" />
      <Compile Include="Assets\Scripts\BarrierMasterControlScript.cs" />
      <Compile Include="Assets\Scripts\BoxCamera.cs" />
      <Compile Include="Assets\Scripts\CheckpointScript.cs" />
@@ -65,11 +66,11 @@
      <Compile Include="Assets\Scripts\barrierLeverScript.cs" />
      <Compile Include="Assets\Scripts\enemyFollowController.cs" />
      <Compile Include="Assets\SoundManager.cs" />
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Volumes/Segate500/unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>/Volumes/Segate500/unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,6 +10,7 @@ public class DoorScript : MonoBehaviour {
 	public void EnterDoor(){
 		currentNumberOfHearts = healthBarManager.getNumberOfActiveHearts();
 		GameManager.instance.health = currentNumberOfHearts;
-		SceneManager.LoadScene ("NextScene");
+		SceneManager.LoadScene ("Level02");
+
 	}
 }
