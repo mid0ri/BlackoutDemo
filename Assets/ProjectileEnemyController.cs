@@ -17,16 +17,26 @@ public class ProjectileEnemyController : MonoBehaviour
     Rigidbody2D enemyRB;
     public GameObject enemyProjectile;
     public Transform launchPoint;
+    public float waitBetweenShots;
+    private float shotCounter;
+
+    //public Collider2D other;
 
     // Use this for initialization
     void Start()
     {
         enemyRB = GetComponent<Rigidbody2D>();
+
+        shotCounter = waitBetweenShots;
+
+        //other = GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+            shotCounter -= Time.deltaTime;
         if (Time.time > nextFlipChance)
         {
             if (Random.Range(0, 10) >= 5)
@@ -36,11 +46,22 @@ public class ProjectileEnemyController : MonoBehaviour
             nextFlipChance = Time.time + flipTime;
         }
 
+        //if (other.tag == "Player" && shotCounter < 0)
+        {
+            //Instantiate(enemyProjectile, launchPoint.position, launchPoint.rotation);
+            //shotCounter = waitBetweenShots;
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && shotCounter < 0)
+        {
+            //Instantiate(enemyProjectile, launchPoint.position, launchPoint.rotation);
+            //shotCounter = waitBetweenShots;
+        }
+            if (other.tag == "Player")
         {
             if (facingRight && other.transform.position.x < transform.position.x)
             {
@@ -58,17 +79,21 @@ public class ProjectileEnemyController : MonoBehaviour
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && shotCounter < 0)
         {
+            
             if (startShootTime < Time.time)
             {
                 if (!facingRight)
                 {
-                    Instantiate(enemyProjectile, launchPoint.position, launchPoint.rotation);
+                    GameObject flipThis = Instantiate(enemyProjectile, launchPoint.position, launchPoint.rotation) as GameObject;
+                    flipThis.transform.localScale = new Vector3(-2.5f, 3, 1);
+                    shotCounter = waitBetweenShots;
                 }
                 else
                 {
                     Instantiate(enemyProjectile, launchPoint.position, launchPoint.rotation);
+                    shotCounter = waitBetweenShots;
                 }
             }
         }

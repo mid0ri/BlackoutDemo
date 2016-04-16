@@ -29,20 +29,19 @@ public class EnemyProjectileController : MonoBehaviour {
 	void Update ()
     {
         myrigidbody2D.velocity = new Vector2(speed, myrigidbody2D.velocity.y);
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Level")
         {
-            //hurtPlayer.OnCollisionEnter2D();
-
-            //hurtPlayer.SendKnockBackMessage(other.transform.position);
-            //hurtPlayer.numberOfHearts--;
-            //hurtPlayer.hearts[hurtPlayer.numberOfHearts].SetActive(false);
-            //Destroy(gameObject);
+            Destroy(gameObject);
         }
-        //Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(gameObject);
+        else
+        {
+            
+        }
+        
+        
     }
 }
