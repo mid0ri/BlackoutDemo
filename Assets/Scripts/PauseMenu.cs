@@ -12,12 +12,11 @@ public class PauseMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
 	}
-	
+
 	// Update is called once per frame
-	void Update () {
-		
+	void Update () 
+	{
 		if (isGamePaused) 
 		{
 			pauseMenuCanvas.SetActive (true);
@@ -36,13 +35,22 @@ public class PauseMenu : MonoBehaviour {
 		}
 	}
 
-	public void Resume()
+	public void Save()
+	{
+		SaveLoad.Instance.Save ();
+	}
 
+	public void Resume()
 	{
 		isGamePaused = false;
 	}
+
 	public void Quit()
 	{
 		SceneManager.LoadScene (mainMenu);
 	}
 }
+
+
+
+

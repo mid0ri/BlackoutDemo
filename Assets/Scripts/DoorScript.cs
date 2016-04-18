@@ -3,14 +3,20 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class DoorScript : MonoBehaviour {
-
-	public HealthBarManager healthBarManager;
-	private int currentNumberOfHearts;
+	//Since we have the GameManager there is no need to 
 
 	public void EnterDoor(){
-		currentNumberOfHearts = healthBarManager.getNumberOfActiveHearts();
-		GameManager.instance.health = currentNumberOfHearts;
-		SceneManager.LoadScene ("Level02");
 
+
+
+		//For reusability - checks the current levels build index
+		if(SceneManager.GetActiveScene ().buildIndex == 2) 
+		{
+			SceneManager.LoadScene ("Level02");
+		} 
+		else if (SceneManager.GetActiveScene ().buildIndex == 3) 
+		{
+			SceneManager.LoadScene ("Level03");
+		}
 	}
 }

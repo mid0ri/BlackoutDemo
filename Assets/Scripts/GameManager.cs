@@ -1,18 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour {
-	public static GameManager instance = null;              
-	public int health = 3;                                  
+	public static GameManager Instance = null;
 
-	//Awake is always called before any Start functions
+	//Contains all the variables we need to store for saving and moving scene to scene
+	//Gives additional level of securtiy so cant write wrong variables into saved varibales.
+	public GameData localData = new GameData();
+
 	void Awake()
 	{
-		if (instance == null)
-			instance = this;
-		else if (instance != this)
-			Destroy(gameObject);
-		
-		DontDestroyOnLoad(gameObject);
+		if (Instance == null)
+		{
+			Instance = this;
+			DontDestroyOnLoad(gameObject);
+		}
+
+		if (Instance != this) 
+		{
+			Destroy (gameObject);
+		}
+	}
+
+	void Start()
+	{
+		localData = SaveLoad.Instance.savedData;
 	}
 }

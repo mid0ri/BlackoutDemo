@@ -45,10 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\ProjectileEnemyController.cs" />
      <Compile Include="Assets\Scripts\BarrierMasterControlScript.cs" />
      <Compile Include="Assets\Scripts\BoxCamera.cs" />
      <Compile Include="Assets\Scripts\CheckpointScript.cs" />
+     <Compile Include="Assets\Scripts\CreditsScene.cs" />
      <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
      <Compile Include="Assets\Scripts\DoorScript.cs" />
      <Compile Include="Assets\Scripts\EnemyProjectileController.cs" />
@@ -61,11 +61,14 @@
      <Compile Include="Assets\Scripts\MovingPlatform.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\ProjectileEnemyController.cs" />
+     <Compile Include="Assets\Scripts\SaveLoad.cs" />
      <Compile Include="Assets\Scripts\SceneParamsSetup.cs" />
+     <Compile Include="Assets\Scripts\Serialize.cs" />
      <Compile Include="Assets\Scripts\SonicController.cs" />
+     <Compile Include="Assets\Scripts\SoundManager.cs" />
      <Compile Include="Assets\Scripts\barrierLeverScript.cs" />
      <Compile Include="Assets\Scripts\enemyFollowController.cs" />
-     <Compile Include="Assets\SoundManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
