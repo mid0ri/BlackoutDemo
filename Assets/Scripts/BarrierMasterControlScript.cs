@@ -50,10 +50,10 @@ public class BarrierMasterControlScript : MonoBehaviour {
 
 	/*to enable only specific barriers(ie deactivate specific barriers by enable everything then disable specified)*/
 	public void EnableBarriers(int barrierID){
-
+		Debug.Log ("inside enable barriers");
 		//only get called if deactivating a different barrier no point in deactivating what is already deactivated
 		if (barrierID != currentActiveBarrierId) {
-			//Debug.Log ("react barrier" + barrierID);
+			Debug.Log ("barrierid = " + barrierID);
 			//reactivating all barriers
 			EnableAll();
 
@@ -67,11 +67,13 @@ public class BarrierMasterControlScript : MonoBehaviour {
 					anim.SetBool ("isOff",true);
 				break;
 			case 2:
-				//Debug.Log ("+yellow");
+				Debug.Log ("+yellow");
 				foreach (Collider2D aBarrier in yellowBarriers)
 					aBarrier.enabled = false;
-				foreach (Animator anim in yellowAnims)
-					anim.SetBool ("isOff",true);
+				foreach (Animator anim in yellowAnims) {
+					anim.SetBool ("isOff", true);
+					Debug.Log ("inside yellow anim " + anim.GetBool("isOff"));
+				}
 				break;
 			case 3:
 				//Debug.Log ("+purple");

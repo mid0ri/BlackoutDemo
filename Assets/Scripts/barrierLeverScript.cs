@@ -27,6 +27,7 @@ public class BarrierLeverScript : MonoBehaviour {
 	void Update(){
 		if(canActivate){
 			if(Input.GetKeyDown(KeyCode.E)){
+				Debug.Log ("id = " + BarrierID);
 				barrierMaster.EnableBarriers (BarrierID);
 				LeverAnimator.SetBool ("isOff", true);
 			}

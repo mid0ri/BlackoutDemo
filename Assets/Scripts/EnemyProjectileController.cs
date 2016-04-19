@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyProjectileController : MonoBehaviour {
 
     public float speed;
-    public PlayerController player;
+	public MovementScript player;
     public GameObject impactEffect;
     public int damageToGive;
     private Rigidbody2D myrigidbody2D;
@@ -14,7 +14,7 @@ public class EnemyProjectileController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
-        player = FindObjectOfType<PlayerController>();
+		player = FindObjectOfType<MovementScript>();
 
         myrigidbody2D = GetComponent<Rigidbody2D>();
 
