@@ -5,6 +5,9 @@ public class BarrierMasterControlScript : MonoBehaviour {
 	
 	public Collider2D[] redBarriers, yellowBarriers, purpleBarriers;
 	public Animator[] redAnims, yellowAnims, purpleAnims;
+	public Animator[] redLeversAnim;
+	public Animator[] yellowLeversAnim;
+	public Animator[] purpleLeversAnim;
 
 	private int currentActiveBarrierId; //determine which barrier is currently active
 	//-1 means all are active and 0 none are active; 1 - red | 2 - yellow | 3 - purple
@@ -45,6 +48,14 @@ public class BarrierMasterControlScript : MonoBehaviour {
 		foreach (Animator anim in yellowAnims)
 			anim.SetBool ("isOff",false);
 		foreach (Animator anim in purpleAnims)
+			anim.SetBool ("isOff",false);
+		
+		/*To change ALL LEVERS to ON position*/
+		foreach (Animator anim in redLeversAnim)
+			anim.SetBool ("isOff",false);
+		foreach (Animator anim in yellowLeversAnim)
+			anim.SetBool ("isOff",false);
+		foreach (Animator anim in purpleLeversAnim)
 			anim.SetBool ("isOff",false);
 	}
 

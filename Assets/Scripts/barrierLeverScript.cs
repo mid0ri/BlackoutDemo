@@ -15,21 +15,12 @@ public class BarrierLeverScript : MonoBehaviour {
 		LeverAnimator = GetComponent<Animator> ();
 	}
 
-	/*void OnTriggerStay2D(Collider2D other){
-		if(other.gameObject.CompareTag("Player")){
-			if(Input.GetKeyDown(KeyCode.E)){
-				barrierMaster.EnableBarriers (BarrierID);
-				LeverAnimator.SetBool ("isOff", true);
-			}				
-		}
-	}*/
-
 	void Update(){
 		if(canActivate){
 			if(Input.GetKeyDown(KeyCode.E)){
 				Debug.Log ("id = " + BarrierID);
 				barrierMaster.EnableBarriers (BarrierID);
-				LeverAnimator.SetBool ("isOff", true);
+				LeverAnimator.SetBool ("isOff", true);  /*To change specific lever to off position*/
 			}
 		}			
 	}
